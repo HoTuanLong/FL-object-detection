@@ -3,7 +3,7 @@ from pprint import pprint
 
 # Default Configs for training
 # NOTE that, config items could be overwriten by passing argument through command line.
-# e.g. --voc-data-dir='./data/'
+# e.g. --voc_2-data-dir='./data/'
 
 class Config:
     model_name = ""
@@ -32,7 +32,7 @@ class Config:
     log_filename = '/tmp/logfile'
 
     # preset
-    data = 'voc'
+    data = 'voc_2'
     pretrained_model = 'vgg16'
     batch_size = 1
 

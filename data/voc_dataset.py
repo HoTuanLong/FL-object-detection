@@ -47,7 +47,7 @@ class VOCBboxDataset:
 
     Args:
         data_dir (string): Path to the root of the training data. 
-            i.e. "/data/image/voc/VOCdevkit/VOC2007/"
+            i.e. "/data/image/voc_2/VOCdevkit/VOC2007/"
         split ({'train', 'val', 'trainval', 'test'}): Select a split of the
             dataset. :obj:`test` split is only available for
             2007 dataset.

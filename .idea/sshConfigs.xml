@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" connectionConfig="{&quot;serverAliveInterval&quot;:300}" host="172.18.233.41" id="1f616caa-f0ed-4d43-a71d-35f71ff52c86" port="10001" customName="2070Ti_01" nameFormat="CUSTOM" useOpenSSHConfig="true">
+        <option name="customName" value="2070Ti_01" />
+      </sshConfig>
+      <sshConfig authType="PASSWORD" connectionConfig="{&quot;serverAliveInterval&quot;:300}" host="172.18.233.33" id="1958a38b-645b-45a3-92e7-e26dd766088c" port="22" customName="1080-Ti" nameFormat="CUSTOM" useOpenSSHConfig="true">
+        <option name="customName" value="1080-Ti" />
+      </sshConfig>
+    </configs>
+  </component>
+</project>

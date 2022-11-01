@@ -29,4 +29,4 @@ fi
 LOG="experiments/logs/`date +'%m%d'`/${MODEL}/${DATASET}/fl_server.log"
 echo Loggin output to "$LOG"
 
-nohup python3 fl_server.py --config_file data/task_configs/${MODEL}/${DATASET}/${MODEL}_task.json --port ${PORT} > ${LOG} &
+python3 fl_server.py --config_file task_configs/${MODEL}/${DATASET}/${MODEL}_task.json --port ${PORT} > ${LOG}

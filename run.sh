@@ -28,9 +28,9 @@ if [ ! -n "$PORT" ];then
 fi
 
 for i in $(seq 1 ${NUM_CLIENT}); do
-	nohup python3 fl_client.py \
+	python3 fl_client.py \
 	     --gpu $((($i % 8)))\
-	     --config_file data/task_configs/${MODEL}/${DATASET}/${MODEL}_task$i.json \
+	     --config_file task_configs/${MODEL}/${DATASET}/${MODEL}_task$i.json \
 	     --ignore_load True \
 	     --port ${PORT} > ${MODEL}_task$i.log &
 done

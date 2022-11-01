@@ -1,0 +1,12 @@
+/experiments/logs
+
+/task_configs/yolo
+
+/voc_2
+
+/weights/darknet53.conv.74
+
+receipts_valid.json
+yolo_task2.log
+yolo_task1.log
+yolo_model.pkl

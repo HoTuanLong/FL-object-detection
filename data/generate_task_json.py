@@ -1,10 +1,16 @@
 import os
 import json
 import xml.etree.ElementTree as ET
+from typing import Dict, List
+from tqdm import tqdm
 
-sets = ['train', 'test']
-classes = ["basket", "carton", "chair", "electrombile", "gastank", "sunshade", "table"]
-dataset = "street_5"
+sets = ['train', 'val']
+# classes = ["basket", "carton", "chair", "electrombile", "gastank", "sunshade", "table"]
+classes = ['vehicles', 'household', 'animals', 'aeroplane', 'bicycle', 'boat', 'bus', 'car', 'motorbike', 'train',
+           'bottle', 'chair',
+           'dining', 'table', 'potted', 'plant', 'sofa', 'TV/monitor', 'bird', 'cat', 'cow', 'dog', 'horse', 'sheep',
+           'person']
+dataset = "voc_2"
 model = "yolo"
 num_client = int(dataset.split('_')[-1])
 
@@ -24,15 +30,17 @@ def convert(size, box):
 
 
 def convert_annotation(anno_path, label_path, image_set, image_id):
-    with open(os.path.join("custom", image_set+"_label.json"), 'r') as f:
+    with open(os.path.join("custom", image_set + "_label.json"), 'r') as f:
         in_file = json.load(f)
+
     out_file = open(os.path.join(label_path, image_id + ".txt"), 'w')
+    print(out_file)
 
     w = 704
     h = 576
 
     for data in in_file:
-        if data['image_id']==image_id:
+        if data['image_id'] == image_id:
             for obj in data['items']:
                 cls = obj['class']
                 if cls not in classes:
@@ -42,7 +50,6 @@ def convert_annotation(anno_path, label_path, image_set, image_id):
                 bb = convert((w, h), b)
                 out_file.write(str(cls_id) + " " + " ".join([str(a) for a in bb]) + '\n')
     out_file.close()
-
 
     # for obj in root.iter('object'):
     #     difficult = obj.find('difficult').text
@@ -136,7 +143,7 @@ elif model == "yolo":
             list_file = open('%s/%s/%s.txt' % (dataset, str(i), image_set), 'w')
             for image_id in image_ids:
                 list_file.write('%s/%s/%s/%s.jpg\n' % ("data", "custom", "images", image_id))
-                convert_annotation(anno_path, label_path, image_set, image_id)
+                # convert_annotation(anno_path, label_path, image_set, image_id)
             list_file.close()
         task_file_path = os.path.join("task_configs", model, dataset, "yolo_task" + str(i) + ".json")
         task_config = dict()
